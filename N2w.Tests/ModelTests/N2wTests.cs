@@ -20,7 +20,7 @@ namespace N2w.TestTools
     {
       string input = "400";
       Number newNumber = new Number(input);
-      int converted = newNumber.Convert(newNumber.Input);
+      long converted = newNumber.Convert(newNumber.Input);
       Assert.AreEqual(400, converted);
     }
     [TestMethod]
@@ -28,7 +28,7 @@ namespace N2w.TestTools
     {
       string input = "0";
       Number newNumber = new Number(input);
-      int converted = newNumber.Convert(newNumber.Input);
+      long converted = newNumber.Convert(newNumber.Input);
       string numberToWords = newNumber.NumberToWords(converted);
       Assert.AreEqual("zero", numberToWords);
     }
@@ -37,7 +37,7 @@ namespace N2w.TestTools
     {
       string input = "17";
       Number newNumber = new Number(input);
-      int converted = newNumber.Convert(newNumber.Input);
+      long converted = newNumber.Convert(newNumber.Input);
       string numberToWords = newNumber.NumberToWords(converted);
       Assert.AreEqual("seventeen", numberToWords);
     }
@@ -46,7 +46,7 @@ namespace N2w.TestTools
     {
       string input = "48";
       Number newNumber = new Number(input);
-      int converted = newNumber.Convert(newNumber.Input);
+      long converted = newNumber.Convert(newNumber.Input);
       string numberToWords = newNumber.NumberToWords(converted);
       Assert.AreEqual("forty-eight", numberToWords);
     }
@@ -55,27 +55,36 @@ namespace N2w.TestTools
     {
       string input = "148";
       Number newNumber = new Number(input);
-      int converted = newNumber.Convert(newNumber.Input);
+      long converted = newNumber.Convert(newNumber.Input);
       string numberToWords = newNumber.NumberToWords(converted);
       Assert.AreEqual("one hundred forty-eight", numberToWords);
     }
-     [TestMethod]
+    [TestMethod]
     public void NumberToWords_CheckForInputover1000_String()
     {
       string input = "1048";
       Number newNumber = new Number(input);
-      int converted = newNumber.Convert(newNumber.Input);
+      long converted = newNumber.Convert(newNumber.Input);
       string numberToWords = newNumber.NumberToWords(converted);
       Assert.AreEqual("one thousand forty-eight", numberToWords);
     }
-     [TestMethod]
+    [TestMethod]
     public void NumberToWords_CheckForInputover1Million_String()
     {
       string input = "10000048";
       Number newNumber = new Number(input);
-      int converted = newNumber.Convert(newNumber.Input);
+      long converted = newNumber.Convert(newNumber.Input);
       string numberToWords = newNumber.NumberToWords(converted);
       Assert.AreEqual("ten million forty-eight", numberToWords);
+    }
+    [TestMethod]
+    public void NumberToWords_CheckForInputover1Billion_String()
+    {
+      string input = "1345983448";
+      Number newNumber = new Number(input);
+      long converted = newNumber.Convert(newNumber.Input);
+      string numberToWords = newNumber.NumberToWords(converted);
+      Assert.AreEqual("one billion three hundred forty-five million nine hundred eighty-three thousand four hundred forty-eight", numberToWords);
     }
   }
 }

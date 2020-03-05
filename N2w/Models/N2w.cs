@@ -4,11 +4,24 @@ namespace N2w.Models
 {
   public class Number
   {
-    public int Input { get; set; }
+    public string Input { get; set; }
 
-    public Number(int input)
+    public Number(string input)
     {
       Input = input;
+    }
+    public int Convert(string stringNumber)
+    {
+      int convertedNumber = int.Parse(stringNumber);
+      return convertedNumber;
+    }
+    public string NumberToWords(int number)
+    {
+      if (number == 0 )
+      {
+        return "zero";
+      }
+      return "nothing";
     }
   }
 }

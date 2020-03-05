@@ -28,6 +28,11 @@ namespace N2w.Models
         result = "zero";
         return result;
       }
+      if ((number / 1000000) > 0)
+        {
+          result += NumberToWords(number / 1000000) + " million ";
+          number %= 1000000;
+        }
       if ((number / 1000) > 0)
         {
           result += NumberToWords(number / 1000) + " thousand ";

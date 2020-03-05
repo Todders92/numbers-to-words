@@ -68,5 +68,14 @@ namespace N2w.TestTools
       string numberToWords = newNumber.NumberToWords(converted);
       Assert.AreEqual("one thousand forty-eight", numberToWords);
     }
+     [TestMethod]
+    public void NumberToWords_CheckForInputover1Million_String()
+    {
+      string input = "10000048";
+      Number newNumber = new Number(input);
+      int converted = newNumber.Convert(newNumber.Input);
+      string numberToWords = newNumber.NumberToWords(converted);
+      Assert.AreEqual("ten million forty-eight", numberToWords);
+    }
   }
 }

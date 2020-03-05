@@ -28,6 +28,16 @@ namespace N2w.Models
         result = "zero";
         return result;
       }
+      if ((number / 1000) > 0)
+        {
+          result += NumberToWords(number / 1000) + " thousand ";
+          number %= 1000;
+        }
+      if ((number / 100) > 0)
+      { 
+        result += NumberToWords(number / 100) + " hundred ";
+        number %= 100;
+      }
       if (number < 20)
       {
        result += oneThruTwenty[number];

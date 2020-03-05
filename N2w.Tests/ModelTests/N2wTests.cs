@@ -50,5 +50,23 @@ namespace N2w.TestTools
       string numberToWords = newNumber.NumberToWords(converted);
       Assert.AreEqual("forty-eight", numberToWords);
     }
+    [TestMethod]
+    public void NumberToWords_CheckForInputover100_String()
+    {
+      string input = "148";
+      Number newNumber = new Number(input);
+      int converted = newNumber.Convert(newNumber.Input);
+      string numberToWords = newNumber.NumberToWords(converted);
+      Assert.AreEqual("one hundred forty-eight", numberToWords);
+    }
+     [TestMethod]
+    public void NumberToWords_CheckForInputover1000_String()
+    {
+      string input = "1048";
+      Number newNumber = new Number(input);
+      int converted = newNumber.Convert(newNumber.Input);
+      string numberToWords = newNumber.NumberToWords(converted);
+      Assert.AreEqual("one thousand forty-eight", numberToWords);
+    }
   }
 }
